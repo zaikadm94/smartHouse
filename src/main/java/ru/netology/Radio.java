@@ -10,6 +10,11 @@ public class Radio {
         return currentRadioNumber;
     }
 
+    public int getCurrentVolume() {
+
+        return currentVolume;
+    }
+
     public void setCurrentRadioNumber(int newCurrentRadioNumber) {
         if (newCurrentRadioNumber < 0) {
             return;
@@ -36,9 +41,6 @@ public class Radio {
         }
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
@@ -52,13 +54,13 @@ public class Radio {
 
     public void increaseVolume() {
         if (currentVolume < 100) {
-            setCurrentVolume(currentVolume ++);
+            setCurrentVolume(currentVolume + 1);
         }
     }
 
     public void decreaseVolume() {
         if (currentVolume > 0) {
-            setCurrentVolume(currentVolume --);
+            setCurrentVolume(currentVolume - 1);
         }
     }
 }
