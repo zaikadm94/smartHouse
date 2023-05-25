@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio radio = new Radio();
 
     @Test
     public void nextRadioNumber() {
-        Radio radio = new Radio();
         radio.setCurrentRadioNumber(9);
         radio.NextNumberStation();
         int expected = 0;
@@ -17,7 +17,6 @@ public class RadioTest {
 
     @Test
     public void nextRadioNumber1() {
-        Radio radio = new Radio();
         radio.setCurrentRadioNumber(0);
         radio.NextNumberStation();
         int expected = 1;
@@ -28,8 +27,6 @@ public class RadioTest {
 
     @Test
     public void getCurrentRadioNumberTest() {
-        Radio radio = new Radio();
-
         radio.setCurrentRadioNumber(3);
         int expected = 3;
         int actual = radio.getCurrentRadioNumber();
@@ -39,7 +36,6 @@ public class RadioTest {
 
     @Test
     public void getCurrentRadioNumberTest2() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioNumber(10);
         int expected = 0;
@@ -51,7 +47,6 @@ public class RadioTest {
 
     @Test
     public void getCurrentRadioNumberTest1() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioNumber(-1);
         int expected = 0;
@@ -62,7 +57,6 @@ public class RadioTest {
 
     @Test
     public void prevNumberStationTest2() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioNumber(0);
         radio.prevNumberStation();
@@ -73,7 +67,6 @@ public class RadioTest {
 
     @Test
     public void prevNumberStationTest3() {
-        Radio radio = new Radio();
 
         radio.setCurrentRadioNumber(9);
         radio.prevNumberStation();
@@ -82,10 +75,39 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void getMaxStationTest() {
+        radio.getMaxStation();
+        int expected = 9;
+        int actual = radio.getMaxStation();
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getMinStation() {
+        radio.getMinStation();
+        int expected = 0;
+        int actual = radio.getMinStation();
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void constructorTest1() {
+        Radio radio = new Radio(5);
+
+        Assertions.assertEquals(4, radio.getMaxStation());
+
+    }
+
+    @Test
+    public void constructorTest2() {
+        Radio radio = new Radio(-1);
+        Assertions.assertEquals(0, radio.getMinStation());
+    }
+
 
     @Test
     public void getCurrentVolumeTest() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(35);
         int expected = 35;
@@ -96,7 +118,6 @@ public class RadioTest {
 
     @Test
     public void getCurrentVolumeTest2() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(101);
         int expected = 0;
@@ -108,7 +129,6 @@ public class RadioTest {
 
     @Test
     public void getCurrentVolumeTest3() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(-1);
         int expected = 0;
@@ -118,9 +138,24 @@ public class RadioTest {
     }
 
     @Test
+    public void getMaxVolumeTest() {
+        radio.getMaxVolume();
+        int expected = 100;
+        int actual = radio.getMaxVolume();
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getMinVolumeTest() {
+        radio.getMinVolume();
+        int expected = 0;
+        int actual = radio.getMinVolume();
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
 
     public void decreaseVolumeTest() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(38);
         radio.decreaseVolume();
@@ -132,7 +167,6 @@ public class RadioTest {
     @Test
 
     public void increaseVolumeTest() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(38);
         radio.increaseVolume();
@@ -145,7 +179,6 @@ public class RadioTest {
     @Test
 
     public void negativeDecreaseVolumeTest() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(0);
         radio.decreaseVolume();
@@ -157,7 +190,6 @@ public class RadioTest {
     @Test
 
     public void negativeIncreaseVolumeTest() {
-        Radio radio = new Radio();
 
         radio.setCurrentVolume(100);
         radio.increaseVolume();
