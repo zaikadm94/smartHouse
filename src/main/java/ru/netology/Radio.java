@@ -51,16 +51,16 @@ public class Radio {
     }
 
     public void NextNumberStation() {
-        if (currentRadioNumber == 9) {
-            setCurrentRadioNumber(0);
+        if (currentRadioNumber == maxStation) {
+            setCurrentRadioNumber(minStation);
         } else {
             currentRadioNumber++;
         }
     }
 
     public void prevNumberStation() {
-        if (currentRadioNumber == 0) {
-            setCurrentRadioNumber(9);
+        if (currentRadioNumber == minStation) {
+            setCurrentRadioNumber(maxStation);
         } else {
             currentRadioNumber--;
         }
@@ -90,13 +90,13 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             setCurrentVolume(currentVolume + 1);
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             setCurrentVolume(currentVolume - 1);
         }
     }
